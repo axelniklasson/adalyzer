@@ -1,0 +1,24 @@
+{
+  "name": "adalyzer",
+  "description": "",
+  "main": {
+
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/axelniklasson/adalyzer",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.0",
+    "bootstrap": "~3.3.6",
+    "angular": "^1.5.0"
+  }
+}
