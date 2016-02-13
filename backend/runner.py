@@ -1,6 +1,7 @@
 from autobahn.wamp import auth
 from asyncio import coroutine
 from autobahn.asyncio.wamp import ApplicationSession, ApplicationRunner
+import location_optimisation
 
 
 class Connection:
@@ -42,19 +43,27 @@ class Connection:
         def onJoin(self, details):
             print("session joined")
 
+            cars = yield from self.call(u"interchange.app.3b9d29f0-c054-4a04-9f0a-fbbfbb425eb3.vehicles")
+            hist = []
+
             # RPC GET
             try:
-                historical_cars = yield from self.call(u"interchange.app.3b9d29f0-c054-4a04-9f0a-fbbfbb425eb3.vehicles")
-                hist = []
-                for car in historical_cars:
+                for car in cars:
                     info = yield from self.call(u"interchange.vehicle." + car + ".state")
                     hist.append(info)
+                location_optimisation.preprocess(hist)
                 print("call result: {}".format(hist))
             except Exception as e:
                 print("call error: {0}".format(e))
 
             # SUB
-            self.subscribe(self.onCar, u'interchange.vehicle.be26169d-be28-44fe-834b-568a7780758a.stream')
+            try:
+                for car in cars:
+                    subscription = yield from self.subscribe(self.onCar, u'interchange.vehicle.' + car + '.stream')
+                    print("Subscribed with subscription ID {}".format(subscription.id))
+                print("call result: {}".format(hist))
+            except Exception as e:
+                print("call error: {0}".format(e))
 
             # ???
             #self.leave()
@@ -66,12 +75,11 @@ class Connection:
         def onDisconnect(self):
             print("transport disconnected")
 
-        def onCar(self, data=None):
-            try:
-                print("hej")
-                print(data)
-            except Exception as e:
-                print("call error: {0}".format(e))
+        @coroutine
+        def onCar(self, data, timestamp, *args, **kwargs):
+            print("timestamp: " + timestamp)
+            print("data: {}".format(data))
+            location_optimisation.update(data)
 
     def start(self):
         runner = ApplicationRunner(url=u"wss://api.interchange.ericsson.net/v1", realm=u"interchange", debug=False)

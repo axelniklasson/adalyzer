@@ -15,6 +15,6 @@ def test():
 
 
 if __name__ == '__main__':
-    app.run(threaded=True)
     c = Connection()
     c.start()
+    app.run(threaded=True)
