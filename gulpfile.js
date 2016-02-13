@@ -19,7 +19,8 @@ gulp.task('bower-files', function(){
     		'overrides': {
     			'bootstrap': {
     				'main': [
-    					'./dist/css/bootstrap.min.css'
+    					'./dist/css/bootstrap.min.css',
+                        './dist/js/bootstrap.min.js'
     				]
     			},
     		}
@@ -36,4 +37,4 @@ gulp.task('watch', function() {
 	gulp.watch('app/js/**/*.js', ['lint']);
 });
 
-gulp.task('default', ['bower', 'watch']);
+gulp.task('default', ['bower', 'bower-files', 'watch']);

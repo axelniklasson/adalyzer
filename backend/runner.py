@@ -6,6 +6,8 @@ import location_optimisation
 
 class Connection:
 
+    history = []
+
     def __init__(self):
         pass
 
@@ -50,6 +52,7 @@ class Connection:
             try:
                 for car in cars:
                     data = yield from self.call(u"interchange.vehicle." + car + ".state")
+                    data["id"] = car
                     hist.append(data)
                 data = location_optimisation.preprocess(hist)
                 location_optimisation.find_optimal_locations(data)

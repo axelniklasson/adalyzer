@@ -1,1 +1,1 @@
-var app = angular.module('Adalyzer', ['AdalyzerControllers']);
+var app = angular.module('Adalyzer', ['AdalyzerControllers', 'ngMap']);
