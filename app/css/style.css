@@ -10,10 +10,22 @@ nav {
 
 .bg-primary {
 	background: #294F6D;
+	color: white;
 }
 
 .bg-secondary {
 	background: #496D89;
+	color: white;
+}
+
+.bg-third {
+	background: #718EA4;
+	color: white;
+}
+
+.bg-footer {
+	background: #39464F;
+	color: #EFEFEF;
 }
 
 .row {
@@ -79,4 +91,18 @@ h2, h3, h4, p {
 
 p.interest {
 	font-size: 130%;
+}
+
+section#footer {
+	padding: 0;
+	height: 10em;
+	padding-top: 50px;
+}
+
+section#footer p {
+	font-size: 140%;
+}
+
+.row#footerContainer {
+	padding: 0;
 }

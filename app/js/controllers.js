@@ -106,6 +106,10 @@ adalyzerControllers.controller('PersonasController', ['$scope', function($scope)
 	$scope.personas = data;
 }]);
 
+adalyzerControllers.controller('MappingController', ['$scope', function($scope) {
+	$scope.title = 'Mapping';
+}]);
+
 adalyzerControllers.controller('StatsController', ['$scope', function($scope) {
 	$scope.title = 'Stats';
 }]);
