@@ -3,7 +3,8 @@ from asyncio import coroutine
 from autobahn.asyncio.wamp import ApplicationSession, ApplicationRunner
 import threading
 import asyncio
-#import location_optimisation
+import location_optimisation
+import random
 
 
 class Connection(threading.Thread):
@@ -66,8 +67,7 @@ class Connection(threading.Thread):
                     for i in range(0,200):
                         data = self.duplicate(data)
                         hist.append(data)
-                #data = location_optimisation.preprocess(hist)
-                #location_optimisation.find_optimal_locations(data)
+                location_optimisation.set_optimal_locations(data)
                 print("call result: {}".format(hist))
             except Exception as e:
                 print("call error: {0}".format(e))
@@ -96,8 +96,8 @@ class Connection(threading.Thread):
 
         def duplicate(self, car):
             car2 = car.copy()
-            car2['positioning_system']['location']['lat'] += 0.001
-            car2['positioning_system']['location']['lng'] += 0.001
+            car2['positioning_system']['location']['lat'] += random.randint(-100, 100) / 100000
+            car2['positioning_system']['location']['lng'] += random.randint(-100, 100) / 100000
             car2['positioning_system']['speed'] += 5
             car2['positioning_system']['heading'] += 1
             return car2
