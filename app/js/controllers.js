@@ -116,7 +116,7 @@ adalyzerControllers.controller('PersonasController', ['$scope', function($scope)
 
 /* Controller for the Mapping id, which is a map of all personas and their locations */
 adalyzerControllers.controller('MappingController', ['$scope', function($scope) {
-	$scope.title = 'Mapping';
+	$scope.title = 'Ads mapping';
 
 	// array with images of personas
 	var images = [{
