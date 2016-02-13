@@ -4,8 +4,19 @@ adalyzerControllers.controller('MainController', ['$scope', function($scope) {
 	// N/A
 }]);
 
-adalyzerControllers.controller('MapController', ['$scope', function($scope) {
+adalyzerControllers.controller('MapController', ['$scope', function($scope, NgMap) {
 	$scope.title = 'Key points';
+
+	$scope.$on('mapInitialized', function(event, map) {
+			$scope.map = map;
+
+			var marker = new google.maps.Marker({
+    			title: "Hi marker "
+  			});
+  			var latlng = new google.maps.LatLng(57.68, 12);
+  			marker.setPosition(latlng);
+  			marker.setMap($scope.map);
+		});
 }]);
 
 adalyzerControllers.controller('PersonasController', ['$scope', function($scope) {
