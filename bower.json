@@ -1,9 +1,7 @@
 {
   "name": "adalyzer",
   "description": "",
-  "main": {
-
-  },
+  "main": {},
   "license": "MIT",
   "homepage": "https://github.com/axelniklasson/adalyzer",
   "moduleType": [
@@ -17,8 +15,13 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "^2.2.0",
     "bootstrap": "~3.3.6",
-    "angular": "^1.5.0"
+    "angular": "^1.5.0",
+    "components-font-awesome": "^4.5.0",
+    "wow": "wowjs#^1.1.2",
+    "jquery": "^2.2.0",
+    "ngmap": "^1.16.7",
+    "angular-google-maps": "^2.3.2",
+    "animate.css": "animate-css#^3.5.1"
   }
 }

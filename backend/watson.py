@@ -1,6 +1,6 @@
 import requests
 import json
-
+from configs import watson_conf
 
 dummy = { "contentItems" : [
 	{
@@ -29,8 +29,7 @@ dummy = { "contentItems" : [
 	}
 ] }
 
-conf = {}
-execfile("backend/configs/watson_conf", conf)
+conf = watson_conf.cred
 
 def get_insights(payload):
 	response = requests.post(conf["url"], auth=(conf["username"],

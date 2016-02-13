@@ -1,8 +1,22 @@
 from sklearn import cluster
 import numpy as np
+#import datetime
+#import matplotlib
+#matplotlib.use('Agg')
+#import matplotlib.pyplot as plt
 
-def find_optimal_locations(data, count = 5, no_clusters = 10):
-	kmeans = cluster.KMeans(no_clusters, max_iter=300, n_init=10, init='kmeans++', precompute_distances='auto')
+
+def preprocess(payload):
+	lat_lng = np.empty([len(payload), 2])
+	for i in range(0, len(payload)):
+		print (payload[i])
+		lat_lng[i, 0] = payload[i]['positioning_system']['location']['lat']
+		lat_lng[i, 1] = payload[i]['positioning_system']['location']['lng']
+	return lat_lng
+
+
+def find_optimal_locations(data, count=5, no_clusters=10):
+	kmeans = cluster.KMeans(no_clusters, max_iter=300, n_init=10, init='k-means++', precompute_distances='auto')
 	clusters = kmeans.fit_predict(data)
 
 	classes_count = np.zeros([no_clusters,2])
@@ -12,10 +26,20 @@ def find_optimal_locations(data, count = 5, no_clusters = 10):
 
 	sorted = classes_count[classes_count[:,1].argsort()]
 
-	cluster_locations = np.empty(count)
+	cluster_locations = np.empty([count,2])
 	c = 0
-	for j in range(sorted[0].size, sorted[0].size - count, -1):
+	for j in range(sorted[:,0].size-1, sorted[:,0].size - count - 1, -1):
 		cluster_locations[c] = kmeans.cluster_centers_[sorted[j,0]]
 		c += 1
+
+	# Plot configurations
+	#fig = plt.figure()
+	#plt.plot(data[:,0], data[:,1], 'gx')
+	#plt.plot(kmeans.cluster_centers_[:,0], kmeans.cluster_centers_[:,1], 'bo')
+	#plt.legend(('Data', 'Centroids'), loc='upper left')
+
+	# Save fig and return filename
+	#plt.savefig('plt-gen-' + datetime.datetime.now().isoformat() + '.png')
+	#plt.close(fig)
 
 	return cluster_locations

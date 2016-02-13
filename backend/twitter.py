@@ -1,8 +1,8 @@
 from twitter import *
 import numpy as np
+from configs import twitter_conf
 
-conf = {}
-execfile("backend/configs/twitter_conf", conf)
+conf = twitter_conf
 twitter = Twitter(auth=OAuth(conf["a_key"], conf["a_secret"], conf["c_key"], conf["c_secret"]))
 
 
