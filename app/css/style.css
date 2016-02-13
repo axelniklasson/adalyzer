@@ -3,8 +3,9 @@
 }
 
 #location-map{
-	height: 30em;
-	width: 50 em;
+	height: 40em;
+	width: 70em;
+	margin: auto;
 }
 
 .description {
