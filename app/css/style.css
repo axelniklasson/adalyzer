@@ -45,7 +45,7 @@ section {
 	font-weight: 300;
 }
 
-#vehicleMap {
+.map {
 	height: 40em;
 	width: 70em;
 	margin: auto;
