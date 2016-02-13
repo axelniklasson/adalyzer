@@ -68,3 +68,4 @@ target/
 .idea/
 /backend/.idea
 .DS_Store
+/backend/configs/*
