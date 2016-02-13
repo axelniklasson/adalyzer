@@ -1,7 +1,18 @@
 from sklearn import cluster
 import numpy as np
+import matplotlib
 
-def find_optimal_locations(data, count = 5, no_clusters = 10):
+
+def preprocess(payload):
+	lat_lng = np.empty(len(payload), 2)
+	for i in range(0, len(payload)):
+		lat_lng[i, 0] = payload[i]['positioning_system']['location']['lat']
+		lat_lng[i, 1] = payload[i]['positioning_system']['location']['lng']
+	return lat_lng
+
+
+def find_optimal_locations(data, count=5, no_clusters=10):
+
 	kmeans = cluster.KMeans(no_clusters, max_iter=300, n_init=10, init='kmeans++', precompute_distances='auto')
 	clusters = kmeans.fit_predict(data)
 

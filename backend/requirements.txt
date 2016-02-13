@@ -1,5 +1,5 @@
 Flask == 0.10.1
 numpy == 1.10.4
 requests == 2.8.1
-autobahn_rce == 0.6.0.5
+autobahn
 scikit_learn == 0.17
