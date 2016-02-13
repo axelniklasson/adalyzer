@@ -1,3 +1,34 @@
+body {
+	padding: 0;
+	padding-top: 50px;
+	margin: 0;
+}
+
+nav {
+	font-size: 120%;
+}
+
+.bg-primary {
+	background: #294F6D;
+}
+
+.bg-secondary {
+	background: #496D89;
+}
+
+.row {
+	margin: 0 !important;
+	padding-bottom: 100px;
+}
+
+.row h2 {
+	margin-bottom: 30px;
+}
+
+section {
+	padding: 50px 0;
+}
+
 * {
 	font-weight: 300;
 }
@@ -6,28 +37,29 @@
 	height: 40em;
 	width: 70em;
 	margin: auto;
+	padding: 0 !important;
+	border: 15px solid white;
 }
 
 .description {
 	width: 60%;
 	margin: auto;
+	margin-bottom: 30px;
 	font-size: 130%;
 }
 
-#map {
-	background: #294F6D;
+#mapContainer {
 	color: white;
 }
 
-#personas {
+#personasContainer {
 	width: 100%;
 	padding: 0 10%;
 	margin: auto;
 	color: white;
-	background: #496D89;
 }
 
-#personas h2, h3, h4, p {
+h2, h3, h4, p {
 	opacity: 0.9;
 }
 
@@ -43,5 +75,8 @@
 .personaContainer .interestsWrapper {
 	width: 60%;
 	margin: auto;
-	border: 1px solid #EFEFEF;
+}
+
+p.interest {
+	font-size: 130%;
 }

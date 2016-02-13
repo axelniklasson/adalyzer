@@ -6,39 +6,84 @@
  	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body ng-app="Adalyzer" ng-controller="MainController">
-	<!-- Map part of the program --> 
-	<div id="map" class="row" ng-controller="MapController">
-		<div class="col-md-12 text-center">
-			<h2>{{ title }}</h2>
-			<div id="location-map">Loading map...</div>
-		</div>
-	</div>
 
-	<div id="personas" class="row" ng-controller="PersonasController">
-		<div class="col-md-12 text-center">
-			<h2>{{ title }}</h2>
-			<p class="description">Below are four personas that are generated using personality insights analysis. The goal is to map these personas to points of interest on the map where appropriate ads can be displayed.</p>
-		</div>
-		<div class="col-md-3 personaContainer text-center" ng-repeat="persona in personas">
-			<img ng-src="{{persona.img}}">
-			<h3>{{ persona.name }}</h3>
-			<div class="interestsWrapper">
-				<h4>Predicted interests</h4>
-				<p ng-repeat="interest in persona.interests">
-					{{ interest }}
-				</p>
+	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Adalyzer</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a id ="map-anchor" class="page-scroll" href="#map">Key points</a>
+                    </li>
+                    <li>
+                        <a id ="personas-anchor" class="page-scroll" href="#personas">Personas</a>
+                    </li>
+                    <li>
+                        <a id ="ads-anchor" class="page-scroll" href="#mapping">Ads mapping</a>
+                    </li>
+                    <li>
+                        <a id ="stats-anchor" class="page-scroll" href="#stats">Statistics</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+	<!-- Map part of the program --> 
+	<section id="map" class="bg-primary">
+		<div id="mapContainer" class="row" ng-controller="MapController">
+			<div class="col-md-12 text-center">
+				<h2>{{ title }}</h2>
+				<p class="description"></p>
+				<div id="location-map">Loading map...</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
-	<div id="stats" class="row" ng-controller="StatsController">
-		<div class="col-md-12 text-center">
-			<h2>{{ title }}</h2>
+	<section id="personas" class="bg-secondary">
+		<div id="personasContainer" class="row" ng-controller="PersonasController">
+			<div class="col-md-12 text-center">
+				<h2>{{ title }}</h2>
+				<p class="description">Below are four personas that are generated using personality insights analysis. The goal is to map these personas to points of interest on the map where appropriate ads can be displayed.</p>
+			</div>
+			<div class="col-md-3 personaContainer text-center" ng-repeat="persona in personas">
+				<img ng-src="{{persona.img}}">
+				<h3>{{ persona.name }}</h3>
+				<div class="interestsWrapper">
+					<h4>Predicted interests</h4>
+					<p class="interest" ng-repeat="interest in persona.interests">
+						{{ interest }}
+					</p>
+				</div>
+			</div>
 		</div>
-	</div>
+	</section>
+
+	<section id="stats" class="bg-primary">
+		<div id="statsContainer" class="row" ng-controller="StatsController">
+			<div class="col-md-12 text-center">
+				<h2>{{ title }}</h2>
+			</div>
+		</div>
+	</section>
 
 
 	<script src="lib/angular.js"></script>
+	<script src="lib/jquery.js"></script>
+	<script src="lib/bootstrap.min.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/controllers.js"></script>
 	<script src="js/services.js"></script>

@@ -5,7 +5,7 @@ adalyzerControllers.controller('MainController', ['$scope', function($scope) {
 }]);
 
 adalyzerControllers.controller('MapController', ['$scope', function($scope) {
-	$scope.title = 'Maps';
+	$scope.title = 'Key points';
 }]);
 
 adalyzerControllers.controller('PersonasController', ['$scope', function($scope) {
