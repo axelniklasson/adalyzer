@@ -45,12 +45,12 @@ class Location:
 			c += 1
 
 		# Plot configurations
-		fig = plt.figure()
-		plt.plot(data[:,0], data[:,1], 'gx')
-		plt.plot(kmeans.cluster_centers_[:,0], kmeans.cluster_centers_[:,1], 'bo')
-		plt.legend(('Data', 'Centroids'), loc='upper left')
-		plt.show()
-		plt.savefig('plt-gen-' + datetime.datetime.now().isoformat() + '.png')
-		plt.close(fig)
+		#fig = plt.figure()
+		#plt.plot(data[:,0], data[:,1], 'gx')
+		#plt.plot(kmeans.cluster_centers_[:,0], kmeans.cluster_centers_[:,1], 'bo')
+		#plt.legend(('Data', 'Centroids'), loc='upper left')
+		#plt.show()
+		#plt.savefig('plt-gen-' + datetime.datetime.now().isoformat() + '.png')
+		#plt.close(fig)
 
 		self.vehicle_data = cluster_locations

@@ -15,7 +15,6 @@ class Personality:
 				tweets.append(tweet)
 
 		watson_data = watson_client.get_insights(tweets)
-
 		self.personality = watson_data
 
 	def get_personality(self):

@@ -3,8 +3,7 @@ from asyncio import coroutine
 from autobahn.asyncio.wamp import ApplicationSession, ApplicationRunner
 import threading
 import asyncio
-import location_optimisation
-import personality_extraction
+import persona_mappings
 import random
 
 
@@ -94,7 +93,7 @@ class Connection(threading.Thread):
 
         def onCar(self, data, timestamp, *args, **kwargs):
             print("{}".format(data))
-            #location_optimisation.update(data)
+
 
         def duplicate(self, car):
             car2 = car.copy()
