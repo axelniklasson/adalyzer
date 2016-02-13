@@ -1,10 +1,9 @@
 var adalyzerControllers = angular.module('AdalyzerControllers', ['AdalyzerServices']);
 
-adalyzerControllers.controller('MainController', ['$scope', function($scope) {
-	// N/A
+adalyzerControllers.controller('MainController', ['$scope', 'BackendService', function($scope, BackendService) {
 }]);
 
-adalyzerControllers.controller('MapController', ['$scope', function($scope, NgMap) {
+adalyzerControllers.controller('MapController', ['$scope', 'BackendService', function($scope, BackendService, NgMap) {
 	$scope.title = 'Key points';
 
 	// initialize an array with markers
@@ -49,9 +48,18 @@ adalyzerControllers.controller('MapController', ['$scope', function($scope, NgMa
 		}
 
 		// Move a marker to a new position
-		setTimeout(function() { var latlng = new google.maps.LatLng(57.68, 12); markers[0].setPosition(latlng); }, 5000);
-		
+		//setTimeout(function() { var latlng = new google.maps.LatLng(57.68, 12); markers[0].setPosition(latlng); }, 5000);
 	});
+
+	setTimeout(function() {
+		BackendService.history().success(function(data) {
+			var latLngObj = data["positioning_system"]["location"];
+			var latlng = new google.maps.LatLng(latLngObj['lat'], latLngObj['lng']);
+			markers[0].setPosition(latlng);
+		}).error(function() {
+			console.log("count: error");
+		});
+	}, 1000);
 
 	// function to add a new marker using img_id which is a persona id,
 	// lat and lng of the car / persona
@@ -69,42 +77,40 @@ adalyzerControllers.controller('MapController', ['$scope', function($scope, NgMa
 	}
 
 
-
 }]);
 
 /* Controllers fetching data for the different personas */
 adalyzerControllers.controller('PersonasController', ['$scope', function($scope) {
 	$scope.title = 'Personas';
+
 	var data = [
 		{
 			'name': 'John Doe',
 			'age': '20 y/o',
-			'interests': [
-				'Foo', 'Bar', 'Baz'
-			]
+			'interests': []
 		},
 		{
 			'name': 'Jane Doe',
 			'age': '20 y/o',
-			'interests': [
-				'Foo', 'Bar', 'Baz'
-			]
+			'interests': []
 		},
 		{
 			'name': 'Steve Jobs',
 			'age': '20 y/o',
-			'interests': [
-				'Foo', 'Bar', 'Baz'
-			]
+			'interests': []
 		},
 		{
 			'name': 'Steve Wozniak',
 			'age': '20 y/o',
-			'interests': [
-				'Foo', 'Bar', 'Baz'
-			]
+			'interests': []
 		},
 	];
+
+	// BackendService.personas().success(function(data) {
+	// 	$scope.personas = data;
+	// }).error(function() {
+	// 	console.log("count: error");
+	// });
 
 	angular.forEach(data, function(value, key) {
 		value.img = 'img/persona-' + (key + 1) + '.png';

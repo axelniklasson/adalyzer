@@ -1,14 +1,14 @@
 var adalyzerServices = angular.module('AdalyzerServices', []);
 
-adalyzerServices.factory('BackendService', function() {
-	return {
-		subscribe: function(scope, callback) {
-			var handler = $rootScope.$on('data-received', callback);
-			scope.$on('$destroy', handler);
-		},
+adalyzerServices.factory('BackendService', ['$http', function($http) {
+	var URL = 'http://localhost:5000';
 
-		notify: function() {
-			$rootScope.$emit('data-received');
+	return {
+		history: function() {
+			return $http.get(URL + '/history');
+		},
+		personas: function() {
+			return $http.get(URL + '/personas');
 		}
 	};
-});
+}]);
