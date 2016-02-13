@@ -10,6 +10,16 @@ adalyzerControllers.controller('MapController', ['$scope', function($scope) {
 
 adalyzerControllers.controller('PersonasController', ['$scope', function($scope) {
 	$scope.title = 'Personas';
+	$scope.data = [
+		{
+			'name': 'John Doe',
+			'age': '20 y/o'
+		},
+		{
+			'name': 'Jane Doe',
+			'age': '20 y/o'
+		},
+	];
 }]);
 
 adalyzerControllers.controller('StatsController', ['$scope', function($scope) {
