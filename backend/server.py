@@ -1,5 +1,5 @@
 from flask import Flask
-from runner import Connection
+from runner2 import Connection
 
 app = Flask(__name__)
 
@@ -15,6 +15,6 @@ def test():
 
 
 if __name__ == '__main__':
-    app.run(threaded=True)
     c = Connection()
     c.start()
+    app.run(threaded=True)

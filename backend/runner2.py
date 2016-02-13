@@ -1,6 +1,6 @@
 from autobahn.wamp import auth
-from asyncio import coroutine
-from autobahn.asyncio.wamp import ApplicationSession, ApplicationRunner
+from twisted.internet.defer import inlineCallbacks
+from autobahn.twisted.wamp import ApplicationSession, ApplicationRunner
 
 
 class Connection:
@@ -38,17 +38,17 @@ class Connection:
                 # return the signature to the router for verification
                 return signature
 
-        @coroutine
+        @inlineCallbacks
         def onJoin(self, details):
             print("session joined")
 
-            cars = yield from self.call(u"interchange.app.3b9d29f0-c054-4a04-9f0a-fbbfbb425eb3.vehicles")
+            cars = yield self.call(u"interchange.app.3b9d29f0-c054-4a04-9f0a-fbbfbb425eb3.vehicles")
             hist = []
 
             # RPC GET
             try:
                 for car in cars:
-                    data = yield from self.call(u"interchange.vehicle." + car + ".state")
+                    data = yield self.call(u"interchange.vehicle." + car + ".state")
                     hist.append(data)
                     for i in range(0,100):
                         data = self.duplicate(data)
@@ -61,7 +61,7 @@ class Connection:
             # SUB
             try:
                 for car in cars:
-                    subscription = yield from self.subscribe(self.onCar, u'interchange.vehicle.' + car + '.stream')
+                    subscription = yield self.subscribe(self.onCar, u'interchange.vehicle.' + car + '.stream')
                     print("Subscribed with subscription ID {}".format(subscription.id))
                 print("call result: {}".format(hist))
             except Exception as e:
@@ -77,7 +77,7 @@ class Connection:
         def onDisconnect(self):
             print("transport disconnected")
 
-        @coroutine
+        @inlineCallbacks
         def onCar(self, data, timestamp, *args, **kwargs):
             print("timestamp: " + timestamp)
             print("data: {}".format(data))
