@@ -48,6 +48,7 @@
 		<div id="mapContainer" class="row" ng-controller="MapController">
 			<div class="col-md-12 text-center">
 				<h2>{{ title }}</h2>
+				<p class="description">Below is a map that shows where all cars are located at. It updates on the fly as cars move.</p>
 				<p class="description"></p>
 				<ng-map id="vehicleMap" class="map" zoom="11" center="[57.68, 12]">
 					<control name="overviewMap" opened="true" />
@@ -80,6 +81,7 @@
 		<div id="mappingContainer" class="row" ng-controller="MappingController">
 			<div class="col-md-12 text-center">
 				<h2>{{ title }}</h2>
+				<p class="description">Below is a map that shows where all cars are located at, and they are also mapped to a persona.</p>
 				<ng-map id="personaMap" class="map" zoom="11" center="[57.68, 12]">
 					<control name="overviewMap" opened="true" />
 				</ng-map>
@@ -91,6 +93,7 @@
 		<div id="statsContainer" class="row" ng-controller="StatsController">
 			<div class="col-md-12 text-center">
 				<h2>{{ title }}</h2>
+				<p class="description">Below is some statistics. ( Hardcoded at the moment :( )</p>
 			</div>
 		</div>
 	</section>
