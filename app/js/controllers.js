@@ -1,4 +1,4 @@
-var adalyzerControllers = angular.module('AdalyzerControllers', ['AdalyzerServices', 'AdalyzerDirectives']);
+var adalyzerControllers = angular.module('AdalyzerControllers', ['AdalyzerServices']);
 
 adalyzerControllers.controller('MainController', ['$scope', function($scope) {
 	// N/A
