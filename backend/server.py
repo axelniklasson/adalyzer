@@ -1,5 +1,6 @@
 from flask import Flask
 from runner import Connection
+import threading
 
 app = Flask(__name__)
 
@@ -20,5 +21,6 @@ def history():
 
 if __name__ == '__main__':
     c = Connection()
+    c.daemon = True
     c.start()
     app.run(threaded=True)

@@ -1,14 +1,25 @@
 from autobahn.wamp import auth
 from asyncio import coroutine
 from autobahn.asyncio.wamp import ApplicationSession, ApplicationRunner
+from multiprocessing import Process
+import threading
+import asyncio
 
 
-class Connection:
+class Connection(threading.Thread):
 
     history = []
 
     def __init__(self):
-        pass
+        super().__init__()
+        print("Init Connection")
+
+    def run(self):
+        runner = ApplicationRunner(url=u"ws://api.interchange.ericsson.net/v1", realm=u"interchange")
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        loop.run_until_complete(runner.run(self.Component))
+        loop.run_forever()
 
     class Component(ApplicationSession):
 
@@ -53,9 +64,9 @@ class Connection:
                     data = yield from self.call(u"interchange.vehicle." + car + ".state")
                     data["id"] = car
                     hist.append(data)
-                    #for i in range(0,100):
-                    #    data = self.duplicate(data)
-                    #    hist.append(data)
+                    for i in range(0,200):
+                        data = self.duplicate(data)
+                        hist.append(data)
                 #location_optimisation.preprocess(hist)
                 print("call result: {}".format(hist))
             except Exception as e:
@@ -65,8 +76,7 @@ class Connection:
             try:
                 for car in cars:
                     subscription = yield from self.subscribe(self.onCar, u'interchange.vehicle.' + car + '.stream')
-                    print("Subscribed with subscription ID {}".format(subscription.id))
-                print("call result: {}".format(hist))
+                    #print("Subscribed with subscription ID {}".format(subscription.id))
             except Exception as e:
                 print("call error: {0}".format(e))
 
@@ -80,18 +90,14 @@ class Connection:
         def onDisconnect(self):
             print("transport disconnected")
 
-        @coroutine
         def onCar(self, data, timestamp, *args, **kwargs):
-            print("timestamp: " + timestamp)
-            print("data: {}".format(data))
+            print("{}".format(data))
             #location_optimisation.update(data)
 
         def duplicate(self, car):
-            car2 = car.deepcopy()
-            for v in car2['positioning_system']:
-                v += 0.001
+            car2 = car.copy()
+            car2['positioning_system']['location']['lat'] += 0.001
+            car2['positioning_system']['location']['lng'] += 0.001
+            car2['positioning_system']['speed'] += 5
+            car2['positioning_system']['heading'] += 1
             return car2
-
-    def start(self):
-        runner = ApplicationRunner(url=u"wss://api.interchange.ericsson.net/v1", realm=u"interchange", debug=False)
-        runner.run(self.Component)
