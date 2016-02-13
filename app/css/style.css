@@ -1,4 +1,46 @@
+* {
+	font-weight: 300;
+}
+
 #location-map{
 	height: 30em;
 	width: 50 em;
+}
+
+.description {
+	width: 60%;
+	margin: auto;
+	font-size: 130%;
+}
+
+#map {
+	background: #294F6D;
+	color: white;
+}
+
+#personas {
+	width: 100%;
+	padding: 0 10%;
+	margin: auto;
+	color: white;
+	background: #496D89;
+}
+
+#personas h2, h3, h4, p {
+	opacity: 0.9;
+}
+
+.personaContainer {
+	padding: 2em 0;
+}
+
+.personaContainer img {
+	max-width: 40% !important;
+	margin: auto;
+}
+
+.personaContainer .interestsWrapper {
+	width: 60%;
+	margin: auto;
+	border: 1px solid #EFEFEF;
 }

@@ -3,6 +3,7 @@
 	<title>Adalyzer app</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
  	<link rel="stylesheet" href="lib/bootstrap.min.css">
+ 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body ng-app="Adalyzer" ng-controller="MainController">
 	<div id="map" class="row" ng-controller="MapController">
@@ -13,7 +14,18 @@
 
 	<div id="personas" class="row" ng-controller="PersonasController">
 		<div class="col-md-12 text-center">
-			<h2>{{title}}</h2>
+			<h2>{{ title }}</h2>
+			<p class="description">Below are four personas that are generated using personality insights analysis. The goal is to map these personas to points of interest on the map where appropriate ads can be displayed.</p>
+		</div>
+		<div class="col-md-3 personaContainer text-center" ng-repeat="persona in personas">
+			<img ng-src="{{persona.img}}">
+			<h3>{{ persona.name }}</h3>
+			<div class="interestsWrapper">
+				<h4>Predicted interests</h4>
+				<p ng-repeat="interest in persona.interests">
+					{{ interest }}
+				</p>
+			</div>
 		</div>
 	</div>
 
@@ -24,7 +36,6 @@
 	</div>
 
 	<script src="lib/angular.js"></script>
-	<script src="lib/jquery.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/controllers.js"></script>
 	<script src="js/services.js"></script>
