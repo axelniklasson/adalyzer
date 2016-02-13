@@ -7,7 +7,7 @@ function initMap() {
     });
 
     var image = {
-    url: 'img/persona-map-new-1.png',
+    url: 'img/persona-map-1.png',
     // This marker is 20 pixels wide by 32 pixels high.
     size: new google.maps.Size(30, 33),
     // The origin for this image is (0, 0).
