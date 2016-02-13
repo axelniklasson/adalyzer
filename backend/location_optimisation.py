@@ -11,9 +11,9 @@ class Location:
 	vehicle_data = None
 
 	@staticmethod
-	def get_data(self):
-		if self.vehicle_data is not None:
-			return self.vehicle_data.tolist()
+	def get_data():
+		if Location.vehicle_data is not None:
+			return Location.vehicle_data.tolist()
 		else:
 			return None
 
