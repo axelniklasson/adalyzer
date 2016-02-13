@@ -1,12 +1,12 @@
 from sklearn import cluster
 import numpy as np
-#import datetime
-#import matplotlib
-#matplotlib.use('Agg')
-#import matplotlib.pyplot as plt
+import datetime
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 
 
-def preprocess(payload):
+def __preprocess(payload):
 	lat_lng = np.empty([len(payload), 2])
 	for i in range(0, len(payload)):
 		print (payload[i])
@@ -15,7 +15,8 @@ def preprocess(payload):
 	return lat_lng
 
 
-def find_optimal_locations(data, count=5, no_clusters=10):
+def get_optimal_locations(data, count=5, no_clusters=10):
+	data = __preprocess(data)
 	kmeans = cluster.KMeans(no_clusters, max_iter=300, n_init=10, init='k-means++', precompute_distances='auto')
 	clusters = kmeans.fit_predict(data)
 
@@ -37,8 +38,6 @@ def find_optimal_locations(data, count=5, no_clusters=10):
 	#plt.plot(data[:,0], data[:,1], 'gx')
 	#plt.plot(kmeans.cluster_centers_[:,0], kmeans.cluster_centers_[:,1], 'bo')
 	#plt.legend(('Data', 'Centroids'), loc='upper left')
-
-	# Save fig and return filename
 	#plt.savefig('plt-gen-' + datetime.datetime.now().isoformat() + '.png')
 	#plt.close(fig)
 

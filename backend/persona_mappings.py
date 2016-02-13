@@ -1,4 +1,3 @@
-
 def calculate_persona(throttle_position, rpm, vehicle_speed, fuel_consumption_avg):
 	attributes = {'calm': 0, 'reckless': 0, 'family': 0, 'eco': 0}
 	if throttle_position > 40 and rpm > 3000:
