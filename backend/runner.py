@@ -1,7 +1,6 @@
 from autobahn.wamp import auth
 from asyncio import coroutine
 from autobahn.asyncio.wamp import ApplicationSession, ApplicationRunner
-import location_optimisation
 
 
 class Connection:
@@ -49,9 +48,12 @@ class Connection:
             # RPC GET
             try:
                 for car in cars:
-                    info = yield from self.call(u"interchange.vehicle." + car + ".state")
-                    hist.append(info)
-                location_optimisation.preprocess(hist)
+                    data = yield from self.call(u"interchange.vehicle." + car + ".state")
+                    hist.append(data)
+                    for i in range(0,100):
+                        data = self.duplicate(data)
+                        hist.append(data)
+                #location_optimisation.preprocess(hist)
                 print("call result: {}".format(hist))
             except Exception as e:
                 print("call error: {0}".format(e))
@@ -79,7 +81,13 @@ class Connection:
         def onCar(self, data, timestamp, *args, **kwargs):
             print("timestamp: " + timestamp)
             print("data: {}".format(data))
-            location_optimisation.update(data)
+            #location_optimisation.update(data)
+
+        def duplicate(self, car):
+            car2 = car.deepcopy()
+            for v in car2['positioning_system']:
+                v += 0.001
+            return car2
 
     def start(self):
         runner = ApplicationRunner(url=u"wss://api.interchange.ericsson.net/v1", realm=u"interchange", debug=False)
