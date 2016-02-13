@@ -53,9 +53,10 @@ adalyzerControllers.controller('MapController', ['$scope', 'BackendService', fun
 
 	setTimeout(function() {
 		BackendService.history().success(function(data) {
-			var latLngObj = data["positioning_system"]["location"];
-			var latlng = new google.maps.LatLng(latLngObj['lat'], latLngObj['lng']);
-			markers[0].setPosition(latlng);
+			console.log(data);
+			// var latLngObj = data["positioning_system"]["location"];
+			// var latlng = new google.maps.LatLng(latLngObj['lat'], latLngObj['lng']);
+			// markers[0].setPosition(latlng);
 		}).error(function() {
 			console.log("count: error");
 		});
@@ -80,7 +81,7 @@ adalyzerControllers.controller('MapController', ['$scope', 'BackendService', fun
 }]);
 
 /* Controllers fetching data for the different personas */
-adalyzerControllers.controller('PersonasController', ['$scope', function($scope) {
+adalyzerControllers.controller('PersonasController', ['$scope', 'BackendService', function($scope, BackendService) {
 	$scope.title = 'Personas';
 
 	var data = [
@@ -106,11 +107,11 @@ adalyzerControllers.controller('PersonasController', ['$scope', function($scope)
 		},
 	];
 
-	// BackendService.personas().success(function(data) {
-	// 	$scope.personas = data;
-	// }).error(function() {
-	// 	console.log("count: error");
-	// });
+	BackendService.personas().success(function(data) {
+		$scope.personas = data;
+	}).error(function() {
+		console.log("count: error");
+	});
 
 	angular.forEach(data, function(value, key) {
 		value.img = 'img/persona-' + (key + 1) + '.png';
