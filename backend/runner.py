@@ -5,6 +5,8 @@ from autobahn.asyncio.wamp import ApplicationSession, ApplicationRunner
 
 class Connection:
 
+    history = []
+
     def __init__(self):
         pass
 
@@ -49,10 +51,11 @@ class Connection:
             try:
                 for car in cars:
                     data = yield from self.call(u"interchange.vehicle." + car + ".state")
+                    data["id"] = car
                     hist.append(data)
-                    for i in range(0,100):
-                        data = self.duplicate(data)
-                        hist.append(data)
+                    #for i in range(0,100):
+                    #    data = self.duplicate(data)
+                    #    hist.append(data)
                 #location_optimisation.preprocess(hist)
                 print("call result: {}".format(hist))
             except Exception as e:
