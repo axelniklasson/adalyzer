@@ -11,9 +11,10 @@ class Connection:
     class Component(ApplicationSession):
 
         def __init__(self, config=None):
+            print("component created")
             ApplicationSession.__init__(self, config)
             print(config)
-            print("component created")
+
 
         def onConnect(self):
             print("transport connected")
