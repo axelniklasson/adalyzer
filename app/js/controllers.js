@@ -24,18 +24,18 @@ adalyzerControllers.controller('MapController', ['$scope', 'BackendService', fun
 	var cars = [
 		{
 			'id':'1',
-			'lat':'57.60',
-			'lng':'12'
+			'lat':'57.6920538',
+			'lng':'11.9746084'
 		},
 		{
 			'id':'2',
-			'lat':'58.00',
-			'lng':'12.2'
+			'lat':'57.6860668',
+			'lng':'11.9652099'
 		},
 		{
 			'id':'3',
-			'lat':'58.1',
-			'lng':'12.1'
+			'lat':'57.7002643',
+			'lng':'11.951225'
 		}
 	];
 
@@ -51,16 +51,16 @@ adalyzerControllers.controller('MapController', ['$scope', 'BackendService', fun
 		//setTimeout(function() { var latlng = new google.maps.LatLng(57.68, 12); markers[0].setPosition(latlng); }, 5000);
 	});
 
-	setTimeout(function() {
-		BackendService.history().success(function(data) {
-			console.log(data);
-			// var latLngObj = data["positioning_system"]["location"];
-			// var latlng = new google.maps.LatLng(latLngObj['lat'], latLngObj['lng']);
-			// markers[0].setPosition(latlng);
-		}).error(function() {
-			console.log("count: error");
-		});
-	}, 1000);
+	// setTimeout(function() {
+	// 	BackendService.history().success(function(data) {
+	// 		console.log(data);
+	// 		// var latLngObj = data["positioning_system"]["location"];
+	// 		// var latlng = new google.maps.LatLng(latLngObj['lat'], latLngObj['lng']);
+	// 		// markers[0].setPosition(latlng);
+	// 	}).error(function() {
+	// 		console.log("count: error");
+	// 	});
+	// }, 1000);
 
 	// function to add a new marker using img_id which is a persona id,
 	// lat and lng of the car / persona
@@ -88,30 +88,24 @@ adalyzerControllers.controller('PersonasController', ['$scope', 'BackendService'
 		{
 			'name': 'John Doe',
 			'age': '20 y/o',
-			'interests': []
+			'interests': ['Environment', 'Family']
 		},
 		{
 			'name': 'Jane Doe',
 			'age': '20 y/o',
-			'interests': []
+			'interests': ['Fast cars', 'Travel']
 		},
 		{
 			'name': 'Steve Jobs',
 			'age': '20 y/o',
-			'interests': []
+			'interests': ['Business', 'Environment']
 		},
 		{
 			'name': 'Steve Wozniak',
 			'age': '20 y/o',
-			'interests': []
+			'interests': ['Family', 'Business']
 		},
 	];
-
-	BackendService.personas().success(function(data) {
-		$scope.personas = data;
-	}).error(function() {
-		console.log("count: error");
-	});
 
 	angular.forEach(data, function(value, key) {
 		value.img = 'img/persona-' + (key + 1) + '.png';
@@ -165,7 +159,10 @@ adalyzerControllers.controller('MappingController', ['$scope', function($scope) 
 	$scope.$on('mapInitialized', function(event, map) {
 		$scope.map = map;
 		console.log("Map loaded. Ready to handle new markers");
-		add_markers(1, 57.68, 12);
+		add_markers(0, 57.6920538, 11.9746084);
+		add_markers(1, 57.6920538, 11.9746084);
+		add_markers(2, 57.6860668, 11.9652099);
+		add_markers(3, 57.7002643, 11.951225);
 	});
 
 	// initialize an array with markers
