@@ -19,7 +19,6 @@ class Connection(threading.Thread):
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
         loop.run_until_complete(runner.run(self.Component))
-        loop.run_forever()
 
     class Component(ApplicationSession):
 
