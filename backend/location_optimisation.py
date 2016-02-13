@@ -1,8 +1,8 @@
 from sklearn import cluster
 import numpy as np
 import datetime
-import matplotlib
-matplotlib.use('Agg')
+#import matplotlib
+#matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 
@@ -34,11 +34,12 @@ def get_optimal_locations(data, count=5, no_clusters=10):
 		c += 1
 
 	# Plot configurations
-	#fig = plt.figure()
-	#plt.plot(data[:,0], data[:,1], 'gx')
-	#plt.plot(kmeans.cluster_centers_[:,0], kmeans.cluster_centers_[:,1], 'bo')
-	#plt.legend(('Data', 'Centroids'), loc='upper left')
-	#plt.savefig('plt-gen-' + datetime.datetime.now().isoformat() + '.png')
-	#plt.close(fig)
+	fig = plt.figure()
+	plt.plot(data[:,0], data[:,1], 'gx')
+	plt.plot(kmeans.cluster_centers_[:,0], kmeans.cluster_centers_[:,1], 'bo')
+	plt.legend(('Data', 'Centroids'), loc='upper left')
+	plt.show()
+	plt.savefig('plt-gen-' + datetime.datetime.now().isoformat() + '.png')
+	plt.close(fig)
 
 	return cluster_locations
