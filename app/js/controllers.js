@@ -64,5 +64,5 @@ adalyzerControllers.controller('MappingController', ['$scope', function($scope) 
 }]);
 
 adalyzerControllers.controller('StatsController', ['$scope', function($scope) {
-	$scope.title = 'Stats';
+	$scope.title = 'Statistics';
 }]);
