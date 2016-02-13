@@ -1,5 +1,5 @@
 from flask import Flask
-from runner2 import Connection
+from runner import Connection
 
 app = Flask(__name__)
 
