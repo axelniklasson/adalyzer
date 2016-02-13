@@ -1,11 +1,26 @@
 <html>
 <head>
 	<title>Adalyzer app</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
  	<link rel="stylesheet" href="lib/bootstrap.min.css">
 </head>
-<body ng-app="Adalyzer">
-	<div ng-controller="MainController">
-		<h1>{{ title }}</h1>
+<body ng-app="Adalyzer" ng-controller="MainController">
+	<div id="map" class="row" ng-controller="MapController">
+		<div class="col-md-12">
+			{{ title }}
+		</div>
+	</div>
+
+	<div id="personas" class="row" ng-controller="PersonasController">
+		<div class="col-md-12">
+			{{ title }}
+		</div>
+	</div>
+
+	<div id="stats" class="row" ng-controller="StatsController">
+		<div class="col-md-12">
+			{{ title }}
+		</div>
 	</div>
 
 	<script src="lib/angular.js"></script>
