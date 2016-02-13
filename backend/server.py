@@ -38,6 +38,6 @@ def personas():
 
 
 if __name__ == '__main__':
-    c = Connection()
+    c = Connection(loc, per)
     c.start()
     app.run(threaded=True)
