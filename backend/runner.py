@@ -67,7 +67,7 @@ class Connection(threading.Thread):
                     for i in range(0,200):
                         data = self.duplicate(data)
                         hist.append(data)
-                location_optimisation.get_optimal_locations(data)
+                location_optimisation.set_optimal_locations(data)
                 print("call result: {}".format(hist))
             except Exception as e:
                 print("call error: {0}".format(e))
