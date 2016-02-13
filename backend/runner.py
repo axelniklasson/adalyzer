@@ -4,6 +4,7 @@ from autobahn.asyncio.wamp import ApplicationSession, ApplicationRunner
 import threading
 import asyncio
 import persona_mappings
+from personality_extraction import Personality
 from location_optimisation import Location
 import random
 
