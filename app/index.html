@@ -49,7 +49,7 @@
 			<div class="col-md-12 text-center">
 				<h2>{{ title }}</h2>
 				<p class="description"></p>
-				<ng-map id="vehicleMap" zoom="11" center="[57.68, 12]">
+				<ng-map id="vehicleMap" class="map" zoom="11" center="[57.68, 12]">
 					<control name="overviewMap" opened="true" />
 				</ng-map>
 			</div>
@@ -80,6 +80,9 @@
 		<div id="mappingContainer" class="row" ng-controller="MappingController">
 			<div class="col-md-12 text-center">
 				<h2>{{ title }}</h2>
+				<ng-map id="personaMap" class="map" zoom="11" center="[57.68, 12]">
+					<control name="overviewMap" opened="true" />
+				</ng-map>
 			</div>
 		</div>
 	</section>
