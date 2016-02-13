@@ -4,6 +4,7 @@ from autobahn.asyncio.wamp import ApplicationSession, ApplicationRunner
 import threading
 import asyncio
 import persona_mappings
+from location_optimisation import Location
 import random
 
 
@@ -11,10 +12,8 @@ class Connection(threading.Thread):
 
     history = []
 
-    def __init__(self, loc, per):
+    def __init__(self):
         super().__init__()
-        self.persona = per
-        self.location = loc
         print("Init Connection")
 
     def run(self):
@@ -68,7 +67,7 @@ class Connection(threading.Thread):
                     for i in range(0,200):
                         data = self.duplicate(data)
                         hist.append(data)
-                self.loc.set_optimal_locations(data)
+                    Location.set_optimal_locations(data)
                 print("call result: {}".format(hist))
             except Exception as e:
                 print("call error: {0}".format(e))
