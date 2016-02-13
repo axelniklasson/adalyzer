@@ -7,8 +7,6 @@ from location_optimisation import Location
 from personality_extraction import Personality
 
 app = Flask(__name__)
-loc = Location()
-per = Personality()
 CORS(app)
 
 @app.route('/')
@@ -23,21 +21,21 @@ def test():
 
 @app.route('/history')
 def history():
-	if loc.get_data() is not None:
-		return json.dumps(loc.get_data())
+	if Location.get_data() is not None:
+		return json.dumps(Location.get_data())
 	else:
 		return json.dumps("")
 
 
 @app.route('/personas')
 def personas():
-	if per.get_personality() is not None:
-		return json.dumps(per.get_personality())
+	if Personality.get_personality() is not None:
+		return json.dumps(Personality.get_personality())
 	else:
 		return json.dumps("")
 
 
 if __name__ == '__main__':
-    c = Connection(loc, per)
-    c.start()
-    app.run(threaded=True)
+	c = Connection()
+	c.start()
+	app.run(threaded=True)
