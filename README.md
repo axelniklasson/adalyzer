@@ -15,6 +15,9 @@ Since there were limited time to implement everything during the Hackathon and w
 
 ## Build and run
 ### Build
+
+First make sure that you have [npm](https://www.npmjs.com/) installed globally on your computer.
+
 To build Adalyzer, perform the following steps.
 ```
 git clone https://github.com/axelniklasson/adalyzer.git
