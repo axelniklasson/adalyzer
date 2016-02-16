@@ -49,9 +49,9 @@
 		<div id="mapContainer" class="row" ng-controller="MapController">
 			<div class="col-md-12 text-center">
 				<h2>{{ title }}</h2>
-				<p class="description">Below is a map that shows where all cars are located at. It updates on the fly as cars move.</p>
+				<p class="description">Below is a map that shows where all cars are located at.</p>
 				<p class="description"></p>
-				<ng-map id="vehicleMap" class="map" zoom="12" center="[57.68, 12]">
+				<ng-map id="vehicleMap" class="map wow fadeIn" data-wow-delay="0.5s" zoom="12" center="[57.68, 12]">
 					<control name="overviewMap" opened="true" />
 				</ng-map>
 			</div>
@@ -62,7 +62,7 @@
 		<div id="personasContainer" class="row" ng-controller="PersonasController">
 			<div class="col-md-12 text-center">
 				<h2>{{ title }}</h2>
-				<p class="description">Below are four personas that are generated using personality insights analysis. The goal is to map these personas to points of interest on the map where appropriate ads can be displayed.</p>
+				<p class="description">Below are four personas that are generated using personality insights analysis. The goal is to map these personas to points of interest on the map where targeted ads can be displayed.</p>
 			</div>
 			<div class="col-md-3 personaContainer text-center wow fadeIn" 
 			data-wow-delay="{{$index * 0.6}}s" ng-repeat="persona in personas" track by $index>
@@ -83,7 +83,7 @@
 			<div class="col-md-12 text-center">
 				<h2>{{ title }}</h2>
 				<p class="description">Below is a map that shows where all cars are located at, and they are also mapped to a persona.</p>
-				<ng-map id="personaMap" class="map" zoom="12" center="[57.68, 12]">
+				<ng-map id="personaMap" class="map wow fadeIn" data-wow-delay="0.5s" zoom="12" center="[57.68, 12]">
 					<control name="overviewMap" opened="true" />
 				</ng-map>
 			</div>
@@ -97,15 +97,15 @@
 					<h2>{{ title }}</h2>
 					<p class="description">Below you find some statistics</p>
 				</div>
-				<div class="col-md-4 text-center">
+				<div class="col-md-4 text-center wow fadeIn" data-wow-delay="0.5s">
 					<h3>Cars</h3>
 					<p>5 cars recorded</p>
 				</div>
-				<div class="col-md-4 text-center">
+				<div class="col-md-4 text-center wow fadeIn" data-wow-delay="1s">
 					<h3>Personas</h3>
 					<p>4 available personas</p>
 				</div>
-				<div class="col-md-4 text-center">
+				<div class="col-md-4 text-center wow fadeIn" data-wow-delay="1.5s">
 					<h3>Random</h3>
 					<p>Random stats...</p>
 				</div>

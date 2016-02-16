@@ -106,3 +106,7 @@ section#footer p {
 .row#footerContainer {
 	padding: 0;
 }
+
+#stats p {
+	font-size: 130%;
+}

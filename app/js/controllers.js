@@ -51,16 +51,16 @@ adalyzerControllers.controller('MapController', ['$scope', 'BackendService', fun
 		//setTimeout(function() { var latlng = new google.maps.LatLng(57.68, 12); markers[0].setPosition(latlng); }, 5000);
 	});
 
-	// setTimeout(function() {
-	// 	BackendService.history().success(function(data) {
-	// 		console.log(data);
-	// 		// var latLngObj = data["positioning_system"]["location"];
-	// 		// var latlng = new google.maps.LatLng(latLngObj['lat'], latLngObj['lng']);
-	// 		// markers[0].setPosition(latlng);
-	// 	}).error(function() {
-	// 		console.log("count: error");
-	// 	});
-	// }, 1000);
+	setTimeout(function() {
+		BackendService.history().success(function(data) {
+			console.log(data);
+			// var latLngObj = data["positioning_system"]["location"];
+			// var latlng = new google.maps.LatLng(latLngObj['lat'], latLngObj['lng']);
+			// markers[0].setPosition(latlng);
+		}).error(function() {
+			console.log("count: error");
+		});
+	}, 1000);
 
 	// function to add a new marker using img_id which is a persona id,
 	// lat and lng of the car / persona
