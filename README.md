@@ -1,5 +1,5 @@
 # Adalyzer
-Team "Murphy's lag"'s contribution to the Ericsson Automotive Hackaton 2016.
+Team Murphy's lag's contribution to the Ericsson Automotive Hackaton 2016.
 
 ## About
 Adalyzer is a web application that analyses traffic flow in order to determine optimized advertising. By sampling data from the Interchange API and analyzing it the goal was to present three key points:
@@ -35,3 +35,9 @@ Below follow short presentations of the team members.
 ### Tim Kerschbaumer
 
 ### Axel Niklasson
+My name is Axel Niklasson and I am currently studying my third year of Software Engineering at Chalmers University of Technology. When I don't study or participate in hackathons, I work as a software consultant at my own firm, where I usually work with web development - both frontend and backend. However, I tend to focus more on backend since I find that more enjoyable at the moment. Below you can find the usual links and also my CV.
+
+[GitHub](https://github.com/axelniklasson), 
+[LinkedIn](https://se.linkedin.com/in/axel-niklasson-a1b43287), 
+[axelniklasson.se](http://axelniklasson.se) and my
+[CV](http://axelniklasson.se/media/CV_en.pdf).
