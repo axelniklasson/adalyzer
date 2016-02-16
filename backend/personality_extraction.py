@@ -3,10 +3,9 @@ import watson_client
 
 
 class Personality:
+	personality = None
 
-	def __init__(self):
-		self.personality = None
-
+	@staticmethod
 	def get_insights(self, persona):
 		tweets = []
 		for p in persona:
@@ -15,7 +14,8 @@ class Personality:
 				tweets.append(tweet)
 
 		watson_data = watson_client.get_insights(tweets)
-		self.personality = watson_data
+		Personality.personality = watson_data
 
+	@staticmethod
 	def get_personality(self):
-		return self.personality
+		return Personality.personality

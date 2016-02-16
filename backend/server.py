@@ -37,5 +37,5 @@ def personas():
 
 if __name__ == '__main__':
 	c = Connection()
-	c.start()
+	c.run()
 	app.run(threaded=True)

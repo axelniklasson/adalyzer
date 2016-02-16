@@ -4,23 +4,22 @@ from autobahn.asyncio.wamp import ApplicationSession, ApplicationRunner
 import threading
 import asyncio
 import persona_mappings
+from personality_extraction import Personality
 from location_optimisation import Location
 import random
 
 
-class Connection(threading.Thread):
+class Connection():
 
     history = []
 
     def __init__(self):
-        super().__init__()
         print("Init Connection")
 
     def run(self):
         runner = ApplicationRunner(url=u"ws://api.interchange.ericsson.net/v1", realm=u"interchange")
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        loop.run_until_complete(runner.run(self.Component))
+        runner.run(self.Component)
+
     class Component(ApplicationSession):
 
         def __init__(self, config=None):
@@ -67,32 +66,25 @@ class Connection(threading.Thread):
                     for i in range(0,200):
                         data = self.duplicate(data)
                         hist.append(data)
-                    Location.set_optimal_locations(data)
+                    Location.set_optimal_locations(hist)
                 print("call result: {}".format(hist))
             except Exception as e:
                 print("call error: {0}".format(e))
 
-            # SUB
-            try:
-                for car in cars:
-                    subscription = yield from self.subscribe(self.onCar, u'interchange.vehicle.' + car + '.stream')
-                    #print("Subscribed with subscription ID {}".format(subscription.id))
-            except Exception as e:
-                print("call error: {0}".format(e))
-
             # ???
-            #self.leave()
+            self.leave()
 
         def onLeave(self, details):
             print(details)
             print("session left")
+            self.disconnect()
 
         def onDisconnect(self):
             print("transport disconnected")
+            return
 
         def onCar(self, data, timestamp, *args, **kwargs):
             print("{}".format(data))
-
 
         def duplicate(self, car):
             car2 = car.copy()
