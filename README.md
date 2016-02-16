@@ -33,7 +33,10 @@ We did not have time to implement automatic serving using Gulp, so just open ```
 
 ## Team members
 Below follow short presentations of the team members.
-### Johan Angsúes
+### Johan Angséus
+My name is Johan Angséus and I'm currently enrolled to the Computer Systems and Networks master programme at Chalmers University of Technology. I'm fond of all kinds of developing, especially backends and systems.
+[GitHub](https://github.com/angseus) and
+[angseus.ninja](http://angseus.ninja) 
 
 ### Joakim Berntsson
 
