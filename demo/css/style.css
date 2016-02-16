@@ -1,0 +1,112 @@
+body {
+	padding: 0;
+	padding-top: 50px;
+	margin: 0;
+}
+
+nav {
+	font-size: 120%;
+}
+
+.bg-primary {
+	background: #294F6D;
+	color: white;
+}
+
+.bg-secondary {
+	background: #496D89;
+	color: white;
+}
+
+.bg-third {
+	background: #718EA4;
+	color: white;
+}
+
+.bg-footer {
+	background: #39464F;
+	color: #EFEFEF;
+}
+
+.row {
+	margin: 0 !important;
+	padding-bottom: 100px;
+}
+
+.row h2 {
+	margin-bottom: 30px;
+}
+
+section {
+	padding: 50px 0;
+}
+
+* {
+	font-weight: 300;
+}
+
+.map {
+	height: 40em;
+	width: 60em;
+	margin: auto;
+	padding: 0 !important;
+	border: 15px solid white;
+}
+
+.description {
+	width: 60%;
+	margin: auto;
+	margin-bottom: 30px;
+	font-size: 130%;
+}
+
+#mapContainer {
+	color: white;
+}
+
+#personasContainer {
+	width: 100%;
+	padding: 0 10%;
+	margin: auto;
+	color: white;
+}
+
+h2, h3, h4, p {
+	opacity: 0.9;
+}
+
+.personaContainer {
+	padding: 2em 0;
+}
+
+.personaContainer img {
+	max-width: 40% !important;
+	margin: auto;
+}
+
+.personaContainer .interestsWrapper {
+	width: 60%;
+	margin: auto;
+}
+
+p.interest {
+	font-size: 130%;
+}
+
+section#footer {
+	padding: 0;
+	height: 10em;
+	padding-top: 50px;
+}
+
+section#footer p {
+	font-size: 140%;
+}
+
+.row#footerContainer {
+	padding: 0;
+}
+
+#stats p {
+	font-size: 130%;
+}

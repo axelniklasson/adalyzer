@@ -14,7 +14,7 @@ gulp.task('lint', function() {
 });
 
 
-gulp.task('bower-files', function(){
+gulp.task('bower-files', ['bower'], function(){
     return gulp.src(bowerFiles({
     		'overrides': {
     			'bootstrap': {
@@ -28,7 +28,7 @@ gulp.task('bower-files', function(){
     	.pipe(gulp.dest('./app/lib'));
 });
 
-gulp.task('build', ['bower', 'bower-files'], function() {
+gulp.task('build', ['bower-files'], function() {
 	return gulp.src('./app/**')
 		.pipe(gulp.dest('./build'));
 });
