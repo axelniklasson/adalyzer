@@ -28,7 +28,7 @@ gulp.task('bower-files', function(){
     	.pipe(gulp.dest('./app/lib'));
 });
 
-gulp.task('build', ['lint', 'bower-files'], function() {
+gulp.task('build', ['bower', 'bower-files'], function() {
 	return gulp.src('./app/**')
 		.pipe(gulp.dest('./build'));
 });
