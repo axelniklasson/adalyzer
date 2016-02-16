@@ -16,6 +16,8 @@ Since there were limited time to implement everything during the Hackathon and w
 ## Build and run
 ### Build
 
+For demo purposes, a working build is located at ```demo/```.
+
 First make sure that you have [npm](https://www.npmjs.com/) installed globally on your computer.
 
 To build Adalyzer, perform the following steps.
