@@ -41,6 +41,12 @@ My name is Johan Angséus and I'm currently enrolled to the Computer Systems and
 ### Joakim Berntsson
 
 ### Tim Kerschbaumer
+My name is Tim Kerschbaumer and I'm currently studying my third year at the Software Engineering programme at Chalmers. I recently started working at CTK (Chalmers Teknologkonsulter) and I enjoy participating in hackathons. I fancy all kinds of software development but I have recently started taking big interest in machine learning applications.
+
+[GitHub](https://github.com/timkersch), 
+[LinkedIn](https://www.linkedin.com/in/timkerschbaumer/), 
+[timkersch.github.io](http://timkersch.github.io).
+
 
 ### Axel Niklasson
 My name is Axel Niklasson and I am currently studying my third year of Software Engineering at Chalmers University of Technology. When I don't study or participate in hackathons, I work as a software consultant at my own firm, where I usually work with web development - both frontend and backend. However, I tend to focus more on backend since I find that more enjoyable at the moment. Below you can find the usual links and also my CV.
