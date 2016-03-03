@@ -39,6 +39,11 @@ My name is Johan Angséus and I'm currently enrolled to the Computer Systems and
 [angseus.ninja](http://angseus.ninja) 
 
 ### Joakim Berntsson
+My name is Joakim Berntsson and I am studying my third year of Software Engineering at Chalmers Univeristy of Technology. Besides my studies I have founded my own company, where I work with app and web development. When I am not working or studying I enjoy participating in events such as Hackathons to meet people and broaden my knowledge base. 
+
+[GitHub](https://github.com/jcberntsson/), 
+[LinkedIn](https://se.linkedin.com/in/joakimberntsson), 
+[jcbit.se](http://jcbit.se)
 
 ### Tim Kerschbaumer
 My name is Tim Kerschbaumer and I'm currently studying my third year at the Software Engineering programme at Chalmers. I recently started working at CTK (Chalmers Teknologkonsulter) and I enjoy participating in hackathons. I fancy all kinds of software development but I have recently started taking big interest in machine learning applications.
